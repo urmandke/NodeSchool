@@ -2,11 +2,15 @@ const http = require('http')
 const process = require('process')
 const bl = require('bl')
 
-const address = process.argv[2];
+const address1 = process.argv[2];
+const address2 = process.argv[3];
+const address3 = process.argv[4];
 
-let str = "";
+let str1 = "";
+let str2 = "";
+let str3 = "";
 
-http.get(address, function callback(response){
+http.get(address1, function callback(response){
     response.pipe(bl(function callbackOrData(err,data){
         if (err){
             console.log(err);
@@ -17,6 +21,4 @@ http.get(address, function callback(response){
             console.log(data.toString());
         }
     }));
-
-    
-})
+});
